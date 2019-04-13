@@ -5,7 +5,7 @@
 > Profile sign up and login network app built with the MERN stack, JWT authentication, and Redux. This app allows user to create a profile
 > to display info, game links, and, skill set about themselves to follow members. Authentication is managed by Passport and JWT Token creation while
 > Redux manages this across states. Concurrently was installed to create an easier way to start up both the node.js and react client servers together
-> for faster development. Backend set-up (aka Node server) included Database model design using MongoDB and Mongoose then user api routes and authentication were built and tested with Postman. Frontend with bootstrap and react client was initiated. React Router and Redux were used to
+> for faster development. Backend set-up (aka Node server) included Database model design using MongoDB and Mongoose then user api routes and authentication were built and tested with Postman. Frontend with bootstrap and react client was initiated. React Router and Redux with Reducers were used to
 > manage states and authentication. MVC concept applied. I am new to react and redux. Still learning and challenging myself. This is first time I have used redux.The goal and main feature of the app is to present
 > the game made with phaser technology.
 
