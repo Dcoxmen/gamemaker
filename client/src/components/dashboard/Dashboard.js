@@ -44,6 +44,15 @@ class Dashboard extends Component {
               <h1 className="display-4">Dashboard</h1>
               {dashboardContent}
             </div>
+            <h1>Hello, FivePlayers!</h1>
+            <h2>
+              Lets Play MERN Fury!
+              <br />
+              Directions on how to control the game go here!
+            </h2>
+            <a href="/game.html" target="_blank">
+              Play Game
+            </a>
           </div>
         </div>
       </div>

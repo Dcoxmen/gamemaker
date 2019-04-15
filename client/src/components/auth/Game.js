@@ -5,7 +5,7 @@ class Game extends Component {
       <div>
         <h1>Hello, FivePlayers!</h1>
         <h2>
-          Lets Play MERN Fury!
+          This is game component display in auth directory
           <br />
           Directions on how to control the game go here!
         </h2>
