@@ -1,29 +1,37 @@
 img {
   width: 100%;
 }
-
-.landing {
+/* .App {
+  background: url("./img/Background1.png") no-repeat;
+} */
+.container {
+  max-width: 100%;
+  margin: 0;
+}
+.landing,
+.login,
+.register {
   position: relative;
-  background: url("./img/showcase.jpg") no-repeat;
+  background: url("./img/Background1.png") no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
   margin-top: -24px;
-  margin-bottom: -50px;
+  margin-bottom: -57px;
 }
 
-.landing-inner {
+/* .landing-inner {
   padding-top: 80px;
-}
+} */
 
-.dark-overlay {
+/* .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 .card-form {
   opacity: 0.9;
@@ -36,4 +44,50 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+.merntitle {
+  color: rgb(175, 39, 39);
+  font-family: "impact", "sans-serif";
+  text-align: center;
+  font-size: 500%;
+  padding-top: 5%;
+}
+.wrapper {
+  margin-top: 2%;
+  background-color: rgba(209, 209, 209, 0.5);
+  border-radius: 5px;
+  padding: 5% 2% 5% 2%;
+}
+.registersubmit,
+.loginsubmit {
+  /* margin-left: 42%; */
+  padding: 2% 2% 2% 2%;
+  background-color: rgb(21, 224, 180);
+  border: rgb(197, 255, 243);
+  color: black;
+}
+
+.btn1 {
+  background-color: rgb(21, 35, 224);
+  border: rgb(203, 207, 253);
+}
+
+.btn2 {
+  background-color: rgb(21, 224, 180);
+  border: rgb(197, 255, 243);
+}
+
+.tank-img {
+  width: 220px;
+  margin-top: 150px;
+  background: url("./img/tank-blue-150 (1).png") no-repeat;
+}
+#tank-img2 {
+  width: 220px;
+  margin-top: 80px;
+}
+
+#tank-img3 {
+  width: 220px;
+  margin-top: 5px;
 }

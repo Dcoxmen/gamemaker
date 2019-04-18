@@ -50,31 +50,36 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">
-                Sign in to your MERN FURY account
-              </p>
+              <div className="wrapper">
+                <h1 className="display-4 text-center">Log In</h1>
+                <p className="lead text-center">
+                  Sign in to your MERN FURY account
+                </p>
 
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="Email Address"
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}
-                />
+                <form onSubmit={this.onSubmit}>
+                  <TextFieldGroup
+                    placeholder="Email Address"
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}
+                  />
 
-                <TextFieldGroup
-                  placeholder="Password"
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}
-                />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
-              </form>
+                  <TextFieldGroup
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                  />
+                  <input
+                    type="submit"
+                    className="loginsubmit btn btn-info btn-block mt-4"
+                  />
+                </form>
+              </div>
             </div>
           </div>
         </div>

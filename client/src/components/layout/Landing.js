@@ -17,19 +17,24 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Let's Play MERN FURY</h1>
-                <p className="lead">
-                  {" "}
-                  Create a Game Maker Social profile, play games and chat with
-                  other gamers
-                </p>
-                <hr />
-                <Link to="/register" className="btn btn-lg btn-info mr-2">
-                  Sign Up
-                </Link>
-                <Link to="/login" className="btn btn-lg btn-light">
-                  Login
-                </Link>
+                <h1 className="merntitle">MERN Fury</h1>
+                <div className="wrapper">
+                  <p className="lead">
+                    {" "}
+                    Create a MERN Fury profile, play games and connect with
+                    other players.
+                  </p>
+                  <hr />
+                  <Link
+                    to="/register"
+                    className="btn1 btn btn-lg btn-info mr-2"
+                  >
+                    Sign Up
+                  </Link>
+                  <Link to="/login" className="btn2 btn btn-lg btn-light">
+                    Login
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -11,10 +11,11 @@ const ProfileActions = () => {
         <i className="fab fa-black-tie text-info mr-1" />
         Add Experience
       </Link>
-      <a href="/game.html" className="btn btn-light">
-        <i className="fas fa-gamepad text-info mr-1" />
+
+      <Link to="/game" className="btn btn-light">
+        <i className="fa fa-gamepad text-info mr-1" />
         Play Game
-      </a>
+      </Link>
     </div>
   );
 };

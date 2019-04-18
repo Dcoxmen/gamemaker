@@ -49,7 +49,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/game" component={Game} />
+
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
@@ -59,6 +59,9 @@ class App extends Component {
                   path="/create-profile"
                   component={CreateProfile}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/game" component={Game} />
               </Switch>
             </div>
             <Footer />
