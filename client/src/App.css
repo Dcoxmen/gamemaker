@@ -11,6 +11,7 @@ img {
 .landing,
 .login,
 .register {
+  max-width: 100%;
   position: relative;
   background: url("./img/Background1.png") no-repeat;
   background-size: cover;
@@ -20,9 +21,9 @@ img {
   margin-bottom: -57px;
 }
 
-/* .landing-inner {
+.landing-inner {
   padding-top: 80px;
-} */
+}
 
 /* .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
@@ -58,6 +59,7 @@ img {
   border-radius: 5px;
   padding: 5% 2% 5% 2%;
 }
+
 .registersubmit,
 .loginsubmit {
   /* margin-left: 42%; */
@@ -90,4 +92,7 @@ img {
 #tank-img3 {
   width: 220px;
   margin-top: 5px;
+}
+.bg-info {
+  background-color: rgb(21, 224, 180);
 }
