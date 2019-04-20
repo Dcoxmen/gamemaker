@@ -11,7 +11,9 @@ const ProfileActions = () => {
         <i className="fab fa-black-tie text-info mr-1" />
         Add Experience
       </Link>
-
+      <a class="btn btn-light" href="/game.html">
+        Game Link
+      </a>
       <Link to="/game" className="btn btn-light">
         <i className="fa fa-gamepad text-info mr-1" />
         Play Game
