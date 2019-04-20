@@ -46,10 +46,12 @@ class ProfileCreds extends Component {
         </div>
 
         <div className="col-md-6">
-          <h3 className="text-center text-info">Games</h3>
-
+          <h3 className="text-center text-info">Rules of the Game</h3>
           <ul className="list-group">
-            <li>Play MERN Fury</li>
+            <li>Treat other players with respect</li>
+            <li>No profanity please.</li>
+            <li>Profile is required to access MERN Fury</li>
+            <li>Have some fun!</li>
           </ul>
         </div>
       </div>
