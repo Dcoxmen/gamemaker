@@ -21,8 +21,8 @@ img {
   margin-bottom: -57px;
 }
 
-.landing-inner {
-  padding-top: 80px;
+.expdash {
+  margin-top: 80px;
 }
 
 /* .dark-overlay {
@@ -95,4 +95,14 @@ img {
 }
 .bg-info {
   background-color: rgb(21, 224, 180);
+}
+.dashpic {
+  display: flex;
+  width: auto;
+  height: 300px;
+  background-color: rgb(136, 135, 135);
+}
+.expdash {
+  margin-top: 60px;
+  height: auto;
 }
