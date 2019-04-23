@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Player 1</title>
+    <title>Player 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
 
-  <body style="background-color: orange;">
+  <body style="background-color: #318CE7;">
     <center>
       <div class="controller">
         <button
@@ -82,13 +82,13 @@
         firebase.initializeApp(config);
         // Create a variable to reference the database.
         var database = firebase.database();
-        var gameState = 0;
+        var gameState = -1;
         var fireBtn = 0;
         var angleBtn = 0;
         var userAngle = 0;
         var userInput = 0;
         var userPower = 0;
-        var userNo = 1;
+        var userNo = 2;
         // Firebase watcher + initial loader
         database.ref().on(
           "value",

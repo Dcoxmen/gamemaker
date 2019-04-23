@@ -6,7 +6,6 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
-import One from "../PlayerOne";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -67,12 +66,17 @@ class Dashboard extends Component {
                 <h1 className="display-4">Dashboard</h1>
               </div>
               <div className="col-md-12 dashpic">
-                <div className="col-md-2 "> {One}</div>
-                <div className="col-md-2 "> pic two here</div>
-                <div className="col-md-2 "> pic three here</div>
-                <div className="col-md-2 "> pic four here</div>
-                <div className="col-md-2 "> pic five here</div>
-                <div className="col-md-2 "> pic six here</div>
+                <div className="col-md-2 dashicon">
+                  <img
+                    src={user.avatar}
+                    alt="userAvatar"
+                    className="rounded-circle"
+                  />
+                  <div> {user.name}</div>
+                </div>
+                <div className="col-md-5 dashbk" />
+
+                <div className="col-md-5 dashbk2" />
               </div>
               <div className="expdash"> {dashboardContent}</div>
             </div>
