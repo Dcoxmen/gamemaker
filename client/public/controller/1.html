@@ -45,7 +45,7 @@
         </button>
         <button
           id="fireButton"
-          class="btn-floating btn-large waves-effect waves-light red"
+          class="btn-floating btn-large waves-effect waves-light blue"
         >
           <i
             class="material-icons fireIcon"
@@ -82,7 +82,7 @@
         firebase.initializeApp(config);
         // Create a variable to reference the database.
         var database = firebase.database();
-        var gameState = 0;
+        var gameState = -1;
         var fireBtn = 0;
         var angleBtn = 0;
         var userAngle = 0;
@@ -153,7 +153,7 @@
               update(gameState, -1, userPower, userInput);
             }
           })
-          .mouseup(function() {
+          .on("touchend mouseup", function() {
             angleBtn = 0;
             if (userAngle != 0 && userNo === gameState + 1) {
               userAngle = 0;
@@ -168,7 +168,7 @@
               update(gameState, 1, userPower, userInput);
             }
           })
-          .mouseup(function() {
+          .on("touchend mouseup", function() {
             angleBtn = 0;
             if (userAngle != 0 && userNo === gameState + 1) {
               userAngle = 0;
@@ -182,7 +182,7 @@
               update(gameState, userAngle, userPower, -1);
             }
           })
-          .mouseup(function() {
+          .on("touchend mouseup", function() {
             if (userInput != 0 && userNo === gameState + 1) {
               userInput = 0;
               update(gameState, userAngle, userPower, 0);
@@ -195,7 +195,7 @@
               update(gameState, userAngle, userPower, 1);
             }
           })
-          .mouseup(function() {
+          .on("touchend mouseup", function() {
             if (userInput != 0 && userNo === gameState + 1) {
               userInput = 0;
               update(gameState, userAngle, userPower, 0);
@@ -209,7 +209,7 @@
               update(gameState, userAngle, 1, userInput);
             }
           })
-          .mouseup(function() {
+          .on("touchend mouseup", function() {
             if (userPower != 0 && fireBtn != 0 && userNo === gameState + 1) {
               fireBtn = 0;
               userPower = 0;

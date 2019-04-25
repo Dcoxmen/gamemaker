@@ -8,15 +8,23 @@ img {
   max-width: 100%;
   margin: 0;
 }
+
+.wrapper,
+.display-4,
+.lead,
+.loginsubmit {
+  font-weight: bolder;
+  color: rgb(43, 43, 43);
+}
 .landing,
 .login,
 .register {
+  overflow: hidden;
   max-width: 100%;
-  position: relative;
-  background: url("./img/bgtank.png") no-repeat;
+  background: url("./img/battletank.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 89vh;
   margin-top: -24px;
   margin-bottom: -57px;
 }

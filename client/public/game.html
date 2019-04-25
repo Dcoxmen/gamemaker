@@ -31,6 +31,7 @@
       firebase.initializeApp(config);
       // Create a variable to reference the database.
       var database = firebase.database();
+      var players = 5;
       var userAngle = 0;
       var userPower = 0;
       var userInput = 0;
@@ -41,6 +42,9 @@
         function(snapshot) {
           if (snapshot.exists()) {
             // storing the snapshot.val() in a variable for convenience
+            if (snapshot.val().gameState > 10) {
+              players = snapshot.val().gameState - 10;
+            }
             userAngle = snapshot.val().angle;
             userPower = snapshot.val().power;
             userInput = snapshot.val().direction;
@@ -55,20 +59,36 @@
           console.log("Errors handled: " + errorObject.code);
         }
       );
-      database.ref().set({
-        gameState: 0,
-        angle: 0,
-        power: 0,
-        direction: 0
-      });
       var game = new Phaser.Game(960, 480, Phaser.CANVAS, "game");
       var PhaserGame = function(game) {
         this.parent = [];
         this.turret = [];
         this.tank = [];
-        this.tankX = [76, 450, 985, 1425, 1825];
-        this.tankY = [218, 404, 404, 226, 403];
-        this.gameState = 0;
+        this.tankX = [];
+        this.tankY = [];
+        this.userX = [76, 390, 985, 1425, 1825];
+        this.userY = [218, 403, 402, 226, 403];
+        for (var i = 0; i < players; i++) {
+          var j = Math.floor(Math.random() * this.userX.length);
+          this.tankX.push(this.userX[j]);
+          this.tankY.push(this.userY[j]);
+          this.userX.splice(j, 1);
+          this.userY.splice(j, 1);
+        }
+        if (this.tankX.indexOf(76) === -1) {
+          var j = Math.floor(Math.random() * this.tankX.length);
+          this.tankX[j] = 76;
+          this.tankY[j] = 218;
+          this.gameState = j;
+        } else {
+          this.gameState = this.tankX.indexOf(76);
+        }
+        database.ref().set({
+          gameState: this.gameState,
+          angle: 0,
+          power: 0,
+          direction: 0
+        });
         this.flame = null;
         this.bullet = null;
         this.background = null;
@@ -86,6 +106,9 @@
         this.cameraRight = null;
         this.fireButton = null;
         this.fireCheck = false;
+        this.killed = 0;
+        this.crown = null;
+        this.winnerGif = null;
         this.fireSound;
         this.explosionSound;
         this.landSound;
@@ -108,8 +131,10 @@
           this.load.image("flame", "./assets/image/flame.png");
           this.load.image("target", "./assets/image/target.png");
           this.load.image("land", "./assets/image/land.png");
-
+          // sprite sheets
+          this.load.spritesheet("crown", "./assets/image/crown2.png", 50, 50);
           this.load.spritesheet("arrow", "./assets/image/arrow.png", 32, 32);
+          this.load.spritesheet("winner", "./assets/image/winner.png", 80, 39);
           for (i = 0; i < this.tankX.length; i++) {
             this.load.image("tank" + i, "./assets/image/tank" + i + ".png");
             this.load.image("turret" + i, "./assets/image/turret" + i + ".png");
@@ -179,18 +204,13 @@
           this.landSound = this.add.audio("land");
           // Arrow
           this.arrow = game.add.sprite(
-            this.parent[0].x - 15,
-            this.parent[0].y - 80,
+            this.parent[this.gameState].x - 15,
+            this.parent[this.gameState].y - 80,
             "arrow"
           );
           // this.arrow[i] = game.add.sprite(x-17, y-85, 'arrow2');
           this.arrow.animations.add("point");
           this.arrow.animations.play("point", 60, true);
-
-          //  Being mp3 files these take time to decode, so we can't play them instantly
-          //  Using setDecodedCallback we can be notified when they're ALL ready for use.
-          //  The audio files could decode in ANY order, we can never be sure which it'll be.
-          // this.sound.setDecodedCallback([this.fireSound], this.start, this);
         },
         createPlayer: function(x, y, i) {
           this.parent[i] = this.add.sprite(x, y, "");
@@ -206,7 +226,7 @@
           );
           this.tank[i].anchor.set(0.5, 0.5);
           this.parent[i].addChild(this.tank[i]);
-          if (i < this.tankX.length / 2) {
+          if (Math.random() < 0.5) {
             this.turret[i].angle = -20;
           } else {
             // Flip the tank for player# 3~5
@@ -223,11 +243,6 @@
           };
           this.powerBar[i] = new HealthBar(this.game, barConfig);
           this.powerBar[i].setPercent(0);
-          // // Arrow
-          // this.arrow[i] = game.add.sprite(x-17, y-85, 'arrow');
-          // // this.arrow[i] = game.add.sprite(x-17, y-85, 'arrow2');
-          // this.arrow[i].animations.add('point', [0,1,2,3,4,5,6,7,8,9,10,11,12,13], 1);
-          // this.arrow[i].animations.play('point', 60, true);
         },
         /**
          * Called by update if the bullet is in flight.
@@ -313,6 +328,49 @@
           this.parent[hit].kill();
           this.powerBar[hit].kill();
           this.removeBullet(true);
+          if (this.killed === this.tankX.length - 2) {
+            this.gameState = 5;
+            database.ref().set({
+              gameState: this.gameState,
+              angle: 0,
+              power: 0,
+              direction: 0
+            });
+            setTimeout(this.win.bind(this), 1000);
+          } else {
+            this.killed++;
+          }
+        },
+        win: function() {
+          var tankIndex;
+          for (var i = 0; i < this.tankX.length; i++) {
+            if (this.tankX[i] !== -1) {
+              tankIndex = i;
+            }
+          }
+          this.turret[tankIndex].angle = -20;
+          this.tank[tankIndex].scale.x = 1;
+          this.parent[tankIndex].scale.setTo(2, 2);
+          this.parent[tankIndex].x = 480;
+          this.parent[tankIndex].y = 250;
+          this.camera.follow(this.parent[tankIndex]);
+          this.targets.kill();
+          this.arrow.kill();
+          this.powerBar[tankIndex].kill();
+          this.crown = game.add.sprite(
+            this.parent[tankIndex].x - 20,
+            this.parent[tankIndex].y - 70,
+            "crown"
+          );
+          this.crown.animations.add("bling");
+          this.crown.animations.play("bling", 60, true);
+          this.winnerGif = game.add.sprite(
+            this.parent[tankIndex].x - 30,
+            this.parent[tankIndex].y - 100,
+            "winner"
+          );
+          this.winnerGif.animations.add("winner");
+          this.winnerGif.animations.play("winner", 5, true);
         },
         /**
          * Removes the bullet, stops the camera following and tweens the camera back to the tank.
@@ -374,6 +432,9 @@
          * @method update
          */
         update: function() {
+          if (this.gameState === 5) {
+            return;
+          }
           //  If the bullet is in flight we don't let them control anything
           if (this.bullet.exists) {
             //  Bullet vs. the Targets
