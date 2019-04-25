@@ -1,12 +1,11 @@
 img {
   width: 100%;
 }
-/* .App {
-  background: url("./img/Background1.png") no-repeat;
-} */
+
 .container {
   max-width: 100%;
   margin: 0;
+  padding: 0;
 }
 
 .wrapper,
@@ -29,9 +28,20 @@ img {
   margin-bottom: -57px;
 }
 
-/* .landing-inner {
+.profiles,
+.dashboard {
+  /* overflow: hidden; */
+  max-width: 100%;
+  background: url("./img/bg-gradient.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: -24px;
+  margin-bottom: -57px;
+}
+
+.landing-inner {
   padding-top: 80px;
-} */
+}
 
 /* .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
@@ -45,7 +55,9 @@ img {
 .card-form {
   opacity: 0.9;
 }
-
+.card-body {
+  opacity: 0.9;
+}
 .latest-profiles-img {
   width: 40px;
   height: 40px;
@@ -55,38 +67,37 @@ img {
   color: #bbb !important;
 }
 .merntitle {
-  color: rgb(185, 4, 4);
-  font-family: "impact", "sans-serif";
+  width: 30%;
   text-align: center;
-  font-size: 500%;
-  padding-top: 5%;
 }
 .wrapper {
   margin-top: 2%;
-  background-color: rgba(209, 209, 209, 0.5);
+  background-color: rgba(209, 209, 209, 0.7);
   border-radius: 5px;
   padding: 5% 2% 5% 2%;
 }
 
 .registersubmit,
 .loginsubmit {
-  /* margin-left: 42%; */
+  font-size: 32px;
   padding: 2% 2% 2% 2%;
-  /* background-color: rgb(21, 224, 180); */
+  background-color: rgb(21, 224, 180);
   border: rgb(197, 255, 243);
-  color: rgb(255, 255, 255);
 }
 
-.btn1 {
+/* .btn1 {
   background-color: rgb(21, 35, 224);
   border: rgb(203, 207, 253);
 }
 
 .btn2 {
-  background-color: rgb(23, 162, 184);
-  border: rgb(23, 162, 184);
+  background-color: rgb(21, 224, 180);
+  border: rgb(197, 255, 243);
+} */
+.btn-light {
+  background-color: rgb(21, 224, 180);
+  border: rgb(197, 255, 243);
 }
-
 .tank-img {
   width: 220px;
   margin-top: 150px;
@@ -102,7 +113,7 @@ img {
   margin-top: 5px;
 }
 .bg-info {
-  background-color: rgb(23, 162, 184);
+  background-color: rgb(21, 224, 180);
 }
 .dashpic {
   display: flex;

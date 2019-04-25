@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import picTitle from "../../img/title.png";
 
 class Landing extends Component {
   componentDidMount() {
@@ -17,21 +18,21 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="merntitle">MERN Fury</h1>
+                <img className="merntitle" src={picTitle} alt="Title" />
                 <div className="wrapper">
                   <p className="lead">
                     {" "}
-                    Create a MERN Fury profile, play games and connect with
+                    Create a MERN FURY profile, play games and connect with
                     other players.
                   </p>
                   <hr />
                   <Link
                     to="/register"
-                    className="btn1 btn btn-lg btn-info mr-2"
+                    className="btn1 btn btn-lg btn-warning mr-2"
                   >
                     Sign Up
                   </Link>
-                  <Link to="/login" className="btn2 btn btn-lg btn-light">
+                  <Link to="/login" className="btn2 btn btn-lg btn-primary">
                     Login
                   </Link>
                 </div>
