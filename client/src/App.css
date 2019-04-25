@@ -19,6 +19,7 @@ img {
 .login,
 .register {
   overflow: hidden;
+  padding: 0;
   max-width: 100%;
   background: url("./img/battletank.jpg") no-repeat;
   background-size: cover;
@@ -27,20 +28,17 @@ img {
   margin-top: -24px;
   margin-bottom: -57px;
 }
-
-.profiles,
-.dashboard {
-  /* overflow: hidden; */
-  max-width: 100%;
+.bk-image {
+  margin-bottom: 30px;
+  padding: 0;
   background: url("./img/bg-gradient.png") no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: -24px;
-  margin-bottom: -57px;
+  height: 50vh;
 }
 
 .landing-inner {
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 /* .dark-overlay {
