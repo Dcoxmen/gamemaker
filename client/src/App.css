@@ -12,8 +12,9 @@ img {
 .display-4,
 .lead,
 .loginsubmit {
+  padding-left: 10px;
   font-weight: bolder;
-  color: rgb(43, 43, 43);
+  color: rgb(27, 26, 26);
 }
 .landing,
 .login,
@@ -27,6 +28,7 @@ img {
   height: 89vh;
   margin-top: -24px;
   margin-bottom: -57px;
+  text-align: center;
 }
 .bk-image {
   margin-bottom: 30px;
@@ -34,11 +36,24 @@ img {
   background: url("./img/bg-gradient.png") no-repeat;
   background-size: cover;
   background-position: center;
-  height: 50vh;
+  /* height: 50vh; */
+}
+
+.wrapper {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  width: 338px !important;
+  height: 209px !important;
 }
 
 .landing-inner {
   padding-top: 60px;
+  padding-left: 10px;
 }
 
 /* .dark-overlay {
@@ -81,6 +96,9 @@ img {
   padding: 2% 2% 2% 2%;
   background-color: rgb(21, 224, 180);
   border: rgb(197, 255, 243);
+}
+.dBtn {
+  padding-left: 10px;
 }
 
 /* .btn1 {
